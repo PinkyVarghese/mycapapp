@@ -1,0 +1,82 @@
+GET http://localhost:39991/odata/v4/CatalogService
+
+###Read service metadata
+GET http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###Get Top 2 employees
+GET http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+
+###Get Employee with pagination
+GET http://localhost:39991/odata/v4/CatalogService/EmployeeSet?$top=2&$skip=2
+
+###Insert new Employee
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+      "nameFirst": "Pinky",
+      "nameLast": "V",
+      "sex": "F",
+      "phoneNumber": "1234567890",
+      "salaryAmount":10000001
+}
+
+### Delete Request
+DELETE http://localhost:39991/odata/v4/CatalogService/EmployeeSet/0a7757e2-cb3d-4c9e-a4a7-5f123137339f
+
+###Get All Products
+GET http://localhost:39991/odata/v4/CatalogService/ProductViewSet
+
+###Get POs
+GET http://localhost:4004/odata/v4/CatalogService/POs
+
+###Trigger Boost
+POST http://localhost:4004/odata/v4/CatalogService/POs('74867AD200E41EDBA5D8B0C98DC28052')/boost
+Content-Type: application/json
+
+{}
+
+###LargestPO
+GET http://localhost:4004/odata/v4/CatalogService/POs/largestOrder()
+
+###Reademp
+GET http://localhost:4004/odata/v4/demoservice/ReadEmpSrv/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+
+###POST to insert data
+POST http://localhost:4004/odata/v4/demoservice/InserEmployeeSrv
+Content-Type: application/json
+
+{
+      "ID": "02BD2137-0890-1EEA-A6C2-BB55C198E8DB",
+      "nameFirst": "Happy",
+      "nameMiddle": null,
+      "nameLast": "New Data",
+      "nameInitials": null,
+      "sex": "F",
+      "language": "E",
+      "phoneNumber": null,
+      "email": "nongyui@ey.com",
+      "loginName": "NONBGYUI",
+      "Currency_code": "USD",
+      "salaryAmount": 95000,
+      "accountNumber": "9988776655",
+      "bankId": "12100035",
+      "bankName": "My Bank of San Francisco"
+}
+
+###POST to insert data
+PATCH http://localhost:4004/odata/v4/demoservice/UpdateEmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C198E8DB
+Content-Type: application/json
+
+{
+    "nameFirst": "Update"
+}
+
+###DELETE Employee
+DELETE http://localhost:4004/odata/v4/demoservice/DeleteEmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C198E8DB
+Content-Type: application/json
+
+
+
+
