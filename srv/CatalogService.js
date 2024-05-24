@@ -20,7 +20,7 @@ module.exports = cds.service.impl( async function(){
           }
           orderInfo.CURRENCY_code = dbItemInfos[i].CURRENCY_CODE;
         }
-        console.log("To be updated " + result[0].PARENT_KEY_ID + "==>" +JSON.stringify(orderInfo))
+        console.log("To be updated: " + result[0].PARENT_KEY_ID + "==>" +JSON.stringify(orderInfo))
         await cds.update(POs.drafts, result[0].PARENT_KEY_ID).set(orderInfo);
       
       });
