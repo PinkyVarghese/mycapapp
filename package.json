@@ -9,17 +9,19 @@
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
-    "express": "^4"
+    "express": "^4",
+    "@sap/xssec": "^3"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7",
     "@sap/ux-specification": "^1.120.10"
   },
   "scripts": {
     "start": "cds-serve",
     "watch-purchaseorderapp": "cds watch --open purchaseorderapp/webapp/index.html?sap-ui-xx-viewCache=false",
-    "deploy":"cds deploy --to hana:hdi-pinky --profile hybrid",
-    "run":"cds watch --profile hybrid"
+    "deploy": "cds deploy --to hana:hdi-pinky --profile hybrid",
+    "run": "cds watch --profile hybrid"
   },
   "sapux": [
     "app/purchaseorderapp"
@@ -29,7 +31,8 @@
       "db": "hana",
       "[hybrid]": {
         "db": "hana"
-      }
+      },
+      "auth": "xsuaa"
     }
   }
 }
